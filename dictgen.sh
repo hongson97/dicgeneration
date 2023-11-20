@@ -26,8 +26,8 @@ outputfolder=output/js/$clean_domain
 mkdir $outputfolder
 echo $domain | gospider -q >> $outputfolder/gospider.txt
 echo $domain | waybackurls >> $outputfolder/waybackurls.txt
-cat $outputfolder/waybackurls.txt | unfurl pfolder -u > directory.txt
-cat $outputfolder/waybackurls.txt | unfurl pfile -u > filename.txt
+cat $outputfolder/waybackurls.txt | unfurl pfolder | sort -u> $outputfolder/directory.txt
+cat $outputfolder/waybackurls.txt | unfurl pfile | sort -u > $outputfolder/filename.txt
 #echo $output
 n=$((n+1))
 done < $1
